@@ -10,7 +10,7 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-php composer.phar require --prefer-dist dickyermawan/yii2-socketio "*"
+composer require dickyermawan/yii2-socketio
 ```
 
 or add
@@ -27,5 +27,25 @@ Usage
 
 Once the extension is installed, simply use it in your code by  :
 
+in components array
+
 ```php
-<?= \dickyermawan\socketio\AutoloadExample::widget(); ?>```
+'socket' => [
+    'class' => 'dickyermawan\socketio\ElephantIo',
+    'host' => 'http://localhost:8089',
+    'options' => [
+        'headers' => [
+            'X-My-Header: MyHead',
+            'Authorization: Bearer 12345asdf'
+        ]
+    ]
+]
+
+//in your controller:
+Yii::$app->elephantio->emit('realTime', [
+    'param1' => 'param1',
+    'param2' => 'param2'
+]);
+Yii::$app->elephantio->close();
+
+```
