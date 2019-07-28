@@ -27,9 +27,9 @@ Usage
 
 Once the extension is installed, simply use it in your code by  :
 
-in components array
 
 ```php
+//in components array
 'socket' => [
     'class' => 'dickyermawan\socketio\ElephantIo',
     'host' => 'http://localhost:8089',
@@ -42,10 +42,10 @@ in components array
 ]
 
 //in your controller:
-Yii::$app->elephantio->emit('realTime', [
+Yii::$app->socket->emit('realTime', [
     'param1' => 'param1',
     'param2' => 'param2'
 ]);
-Yii::$app->elephantio->close();
+Yii::$app->socket->close();
 
 ```
